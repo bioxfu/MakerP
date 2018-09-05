@@ -1,0 +1,6 @@
+interproscan
+maker*/
+mpich*/
+*.tgz
+*.gz
+*.pdf
