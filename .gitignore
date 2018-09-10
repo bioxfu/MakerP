@@ -1,6 +1,9 @@
 interproscan/
 maker*/
 mpich*/
+genome/
+repeat*/
+sprot/
 *.tgz
 *.gz
 *.pdf

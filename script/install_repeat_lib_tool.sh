@@ -1,5 +1,5 @@
 ## create conda environment
-conda create -n repeat_lib_tool blast blast-legacy mdust muscle rmblast hmmer genometools-genometools
+conda create -n repeat_lib_tool blast blast-legacy mdust muscle rmblast hmmer genometools-genometools seqkit
 source activate repeat_lib_tool
 
 mkdir repeat_lib_tool && cd repeat_lib_tool
