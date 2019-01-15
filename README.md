@@ -51,7 +51,15 @@ mkdir trinity/assembly
 find trinity/clean/*_R1_paired.fastq.gz -printf "%f\n"|sed -r 's/_R1.+//'|xargs -I {} Trinity --seqType fq --max_memory 100G --left trinity/clean/{}_R1_paired.fastq.gz --right trinity/clean/{}_R2_paired.fastq.gz --CPU 10 --SS_lib_type RF --output trinity/assembly/trinity_output_{} &
 disown
 
+# Sometimes Trinity seems to run forever, just kill the process and run it again.
+# Before you rerun the Trinity, check the FailedCommands file and remove the failed command from recursive_trinity.cmds.ok file
+
 # run CD-Hit
+for NAME in 8W-R 8W-S MS
+do
+    echo $NAME
+    nohup cd-hit-est -i trinity/assembly/trinity_output_${NAME}/Trinity.fasta -o trinity/assembly/trinity_output_${NAME}/Trinity_nr80.fasta -c 0.8 -n 4 -T 20 -M 0 &
+done
 ```
 ### 3. Repeat library construction - [Advanced](http://weatherby.genetics.utah.edu/MAKER/wiki/index.php/Repeat_Library_Construction-Advanced)
 ```
